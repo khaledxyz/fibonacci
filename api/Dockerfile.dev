@@ -1,0 +1,10 @@
+FROM node:18-alpine
+RUN npm install -g @rollup/plugin-node-resolve
+
+WORKDIR /app
+
+COPY ./package.json ./package-lock.json ./
+RUN npm install --verbose
+
+COPY . .
+CMD ["npm", "run", "dev"]

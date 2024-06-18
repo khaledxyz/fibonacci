@@ -1,0 +1,6 @@
+node_modules
+.env.example
+.gitignore
+.git
+.eslintrc.cjs
+README.md
