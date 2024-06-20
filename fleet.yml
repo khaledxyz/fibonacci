@@ -1,14 +1,8 @@
-defaultNamespace: fleet-default
-targets:
-  - name: production
-    clusterSelector:
-      matchLabels:
-        environment: production
-    paths:
-      - ./.k8s
-  - name: development
-    clusterSelector:
-      matchLabels:
-        environment: development
-    paths:
-      - ./.k8s
+namespace: fleet-local
+helm:
+  releaseName: fib
+
+kustomize: false
+
+paths:
+  - ./.k8s/*.yml
