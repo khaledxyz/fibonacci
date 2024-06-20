@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: stephengrider/multi-server
+          imagePullPolicy: Always
+          env:
+            - name: REDIS_URI
+              value: redis://redis:6379
+            - name: PG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PG_PASSWORD
+            - name: POSTGRES_URI
+              value: postgresql://khaledxyz:$(PG_PASSWORD)@pg-service:5432/fib
+          ports:
+            - containerPort: 5000

@@ -22,7 +22,7 @@ db.query("CREATE TABLE IF NOT EXISTS values (number INT)").catch((err) =>
 );
 
 // redis
-const redis = new Redis(`redis://${process.env.REDIS_URI}`);
+const redis = new Redis(process.env.REDIS_URI);
 
 // routes
 app.get("/api/hello-world", (req, res) => {
