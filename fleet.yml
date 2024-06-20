@@ -4,7 +4,11 @@ targets:
     clusterSelector:
       matchLabels:
         environment: production
+    paths:
+      - ./.k8s
   - name: development
     clusterSelector:
       matchLabels:
         environment: development
+    paths:
+      - ./.k8s
