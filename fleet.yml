@@ -1,4 +1,4 @@
-defaultNamespace: default
+defaultNamespace: fleet-default
 targets:
   - name: production
     clusterSelector:
